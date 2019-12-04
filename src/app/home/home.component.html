@@ -1,0 +1,11 @@
+<p>Welcome, {{ ApiService.userToken().name}}!</p>
+<ng-template [ngIf]="ApiService.userToken().is_admin" [ngIfElse]="loading">
+
+    <div class="list">
+        You can manage orders:
+    </div>
+</ng-template>
+
+<ng-template #loading>
+        <div>Your orders are:</div>
+</ng-template>
