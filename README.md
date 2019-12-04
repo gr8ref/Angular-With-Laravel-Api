@@ -1,4 +1,4 @@
-# Basic Angular app with Laravel Api
+# Basic Angular app with [Laravel Api](https://github.com/gr8ref/AppApi)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
