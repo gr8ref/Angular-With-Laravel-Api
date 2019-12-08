@@ -49,7 +49,7 @@ userOrdersById(user_id){
 
   .subscribe((response: any) => {
     
-    console.log(response);
+    console.log(response); // treba samo izvršiti ispis u html dijelu
    
   }, () => {
     console.log('Error', )
