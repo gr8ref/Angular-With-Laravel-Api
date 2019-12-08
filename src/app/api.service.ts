@@ -51,6 +51,13 @@ export class ApiService {
     return this.http.get<User[]>(environment.apiEndPoint+'products', httpOptions);
   }
 
+  addProduct(){
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':'application/json', 'X-Requested-With':'XMLHttpRequest', 'Authorization': 'Bearer ' +this.auth_token})
+    }
+    return this.http.put<Products[]>(environment.apiEndPoint+'products', httpOptions);
+  }
+
   getUsersById(id: number): Observable<User[]>{
     return this.http.get<User[]>(environment.apiEndPoint+'users/'+id);
   }
@@ -115,7 +122,7 @@ export class ApiService {
   userToken(){
     return JSON.parse(localStorage.getItem("user")); 
   }
-  
+
   is_admin(){
     if(this.userToken().is_admin) {
       return true;
