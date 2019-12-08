@@ -30,6 +30,20 @@ export class ApiService {
     return this.http.get<User[]>(environment.apiEndPoint+'users', httpOptions);
   }
 
+  listOrders() {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':'application/json', 'X-Requested-With':'XMLHttpRequest', 'Authorization': 'Bearer ' +this.auth_token})
+    }
+    return this.http.get(environment.apiEndPoint+'orders', httpOptions);
+  }
+
+  listOrderById( id: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':'application/json', 'X-Requested-With':'XMLHttpRequest', 'Authorization': 'Bearer ' +this.auth_token})
+    }
+    return this.http.get(environment.apiEndPoint+'users/'+id+'/orders', httpOptions);
+  }
+
   listProducts(): Observable<Products[]>{
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type':'application/json', 'X-Requested-With':'XMLHttpRequest', 'Authorization': 'Bearer ' +this.auth_token})
@@ -101,6 +115,7 @@ export class ApiService {
   userToken(){
     return JSON.parse(localStorage.getItem("user")); 
   }
+  
   is_admin(){
     if(this.userToken().is_admin) {
       return true;
